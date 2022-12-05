@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.formula.functions.Value;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -64,7 +65,7 @@ public class third {
         XSSFCell cell;
 
         // Import excel sheet.
-        File src = new File("src/test/resources/Tariffario_NSTAR_2022_Umbria2.xlsx");
+        File src = new File("src/test/resources/Prpvarisultati.xlsx");
 
         // Load the file.
         FileInputStream fis = new FileInputStream(src);
@@ -72,12 +73,16 @@ public class third {
         // Load the workbook.
         workbook = new XSSFWorkbook(fis);
         //Load the sheet in which data is stored.
-        sheet = workbook.getSheet("Tariffario_NSTAR_2022_Umbria");
+        sheet = workbook.getSheet("Foglio1");
 
 
         /** Reload Excel*/
 
-        ExcelUtils file = new ExcelUtils("src/test/resources/Tariffario_NSTAR_2022_Umbria2.xlsx", "Tariffario_NSTAR_2022_Umbria");
+        ExcelUtils file = new ExcelUtils("src/test/resources/Prpvarisultati.xlsx", "Foglio1");
+
+        String confirmationMessage2="";
+
+       // String testData[][] = new String[][];
 
 
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
@@ -157,11 +162,10 @@ public class third {
                 /** if Portata does not have value skip, if it has value insert it in the application*/
 
 
-               if ((Strings.isNullOrEmpty(Portata))) {
-                    System.out.println("there is no any value "+ i);
+                if ((Strings.isNullOrEmpty(Portata))) {
+                    System.out.println("there is no any value " + i);
 
-                }
-                else if ((!Strings.isNullOrEmpty(Portata))){
+                } else if ((!Strings.isNullOrEmpty(Portata))) {
                     cell = sheet.getRow(i).getCell(20);
                     Thread.sleep(2000);
                     cell.setCellType(CellType.STRING);
@@ -173,10 +177,9 @@ public class third {
                 /** insert Peso*/
 
                 if ((Strings.isNullOrEmpty(Peso))) {
-                    System.out.println("there is no any value "+ i);
+                    System.out.println("there is no any value " + i);
 
-                }
-                else if ((!Strings.isNullOrEmpty(Peso))){
+                } else if ((!Strings.isNullOrEmpty(Peso))) {
                     cell = sheet.getRow(i).getCell(21);
                     cell.setCellType(CellType.STRING);
                     Thread.sleep(2000);
@@ -186,10 +189,9 @@ public class third {
                 /** insert AssiMotrici*/
 
                 if ((Strings.isNullOrEmpty(AssiMotrici))) {
-                    System.out.println("there is no any value "+ i);
+                    System.out.println("there is no any value " + i);
 
-                }
-                else if ((!Strings.isNullOrEmpty(AssiMotrici))){
+                } else if ((!Strings.isNullOrEmpty(AssiMotrici))) {
                     cell = sheet.getRow(i).getCell(22);
                     cell.setCellType(CellType.STRING);
                     Thread.sleep(2000);
@@ -198,10 +200,9 @@ public class third {
 
 
                 if ((Strings.isNullOrEmpty(PesoRimorchio))) {
-                    System.out.println("there is no any value "+ i);
+                    System.out.println("there is no any value " + i);
 
-                }
-                else if ((!Strings.isNullOrEmpty(PesoRimorchio))){
+                } else if ((!Strings.isNullOrEmpty(PesoRimorchio))) {
                     cell = sheet.getRow(i).getCell(26);
                     cell.setCellType(CellType.STRING);
                     Thread.sleep(2000);
@@ -212,26 +213,22 @@ public class third {
                 if (SospensioniPneumatiche.contains("NO")) {
                     System.out.println("it did not click on check box ");
 
-                }
-                else if (SospensioniPneumatiche.contains("SI")){
+                } else if (SospensioniPneumatiche.contains("SI")) {
                     cell = sheet.getRow(i).getCell(24);
                     Thread.sleep(2000);
                     cell.setCellType(CellType.STRING);
                     Thread.sleep(2000);
                     WebElement sospensione = driver.findElement(By.xpath("//input[@id=\"sospensionePneumatica\"]"));
                     sospensione.click();
-                }
-                else if ((Strings.isNullOrEmpty(SospensioniPneumatiche))){
+                } else if ((Strings.isNullOrEmpty(SospensioniPneumatiche))) {
                     System.out.println("it did not click on check box ");
                 }
 
 
-
                 if ((Strings.isNullOrEmpty(GancioTraino))) {
-                    System.out.println("there is no any value "+ i);
+                    System.out.println("there is no any value " + i);
 
-                }
-                else if ((!Strings.isNullOrEmpty(GancioTraino))){
+                } else if ((!Strings.isNullOrEmpty(GancioTraino))) {
                     cell = sheet.getRow(i).getCell(25);
                     cell.setCellType(CellType.STRING);
                     Thread.sleep(2000);
@@ -240,17 +237,9 @@ public class third {
                 }
 
 
-
-
-
-                //   }
-                //    break;
-
-
                 /**Cerca*/
                 WebElement Cerca = driver.findElement(By.xpath("//button[@class=\"btn btn-primary\"]"));
                 Cerca.click();
-
 
 
                 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -261,34 +250,61 @@ public class third {
                 WebElement cancellafiltri = driver.findElement(By.xpath("//button[@class=\"btn btn-link\"]"));
                 cancellafiltri.click();
 
+
+
+                WebElement confirmationMessage = driver.findElement(By.xpath("//tbody/tr/td[13]"));
+                 confirmationMessage2 = confirmationMessage.getText();
+
+                 confirmationMessage2= confirmationMessage2.replace("€","").trim();
+
+
+                confirmationMessage2= confirmationMessage2.replace(".",",").trim();
+                 System.out.println(confirmationMessage2);
+
+
             }
 
 
 
 
 
-            WebElement confirmationMessage= driver.findElement(By.xpath("//tbody/tr/td[13]"));
-            confirmationMessage.getText();
+            //To write into Excel File
+            FileOutputStream outputStream = new FileOutputStream("src/test/resources/ACI_2.xlsx");
+            workbook.write(outputStream);
+
+            DataFormatter format = new DataFormatter();
+
+            for (i = 1; i < sheet.getLastRowNum(); i++) {  //this is the array that stores our tab in excel
+
+                if (confirmationMessage2 == format.formatCellValue(sheet.getRow(i).getCell(27)).trim()) {
+
+                    XSSFCell cell2 = sheet.getRow(i).createCell(2);
+                    System.out.println( format.formatCellValue(sheet.getRow(i).getCell(27)));
+                    cell2.setCellValue("PASS");
+                    System.out.println("Test Pass");
+                    //append the result in a new array at column N.3
+
+                } else {
+                    XSSFCell cell2 = sheet.getRow(i).createCell(2);
+                    System.out.println( format.formatCellValue(sheet.getRow(i).getCell(27)));
+                    cell2.setCellValue("Fail");
+                    System.out.println("Test Fail");
+
+                    // append the result in a new array at column n.3
+                }
 
 
-
-
-        System.out.println(confirmationMessage);
-
-        XSSFCell cell2 = sheet.getRow(i).createCell(40);
-        if(confirmationMessage.isDisplayed()){
-            cell2.setCellValue("PASS");
-        }else{
-            cell2.setCellValue("FAIL");
-        }
-
-        //To write into Excel File
-        FileOutputStream outputStream = new FileOutputStream("src/test/resources/ACIResults.xlsx");
-        workbook.write(outputStream);
-
+// Basically we need three array:
+// the first one is where you store the ExcelSheet TariffarioACI
+// the second array will store the value you extract with the get text
+//the third array will have the 1st column = to 1st column of the excel sheet
+// second column exqual to EXPECTED RESULT from TARIFARRIO ACI
+//third column equal to ACTUAL RESULT from second array
+// fth column equal to the array that contains the result
+            }
         }
     }
 }
 
 
-
+//format.formatCellValue(sheet.getRow(i).getCell(27)).trim())

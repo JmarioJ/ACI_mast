@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1ad801-c025-4dd9-abaf-1ccea7aa0e92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestCases/Iteration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestCases/Iteration2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestCases/Provascript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestCases/third.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utilities/ExcelUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/ACIResults.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Tariffario_NSTAR_2022_Umbria2.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7b1ad801-c025-4dd9-abaf-1ccea7aa0e92" name="Changes" comment="02/12">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/ACI_2.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/KO_Test.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Prpvarisultati.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Hooks/TestBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestCases/second.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCases/second.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestCases/testProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/ConfigurationReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/Driver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utilities/WebDriverFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestCases/third.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCases/third.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/ACIResults.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Tariffario_NSTAR_2022_Umbria2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Tariffario_NSTAR_2022_Umbria2.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +174,14 @@
       <option name="presentableId" value="Default" />
       <updated>1668767941145</updated>
     </task>
+    <task id="LOCAL-00001" summary="02/12">
+      <created>1669998934725</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669998934725</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,5 +194,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="02/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="02/12" />
   </component>
 </project>
